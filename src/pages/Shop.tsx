@@ -1,8 +1,7 @@
-import { Component, createSignal, For } from "solid-js";
-import { FeaturedProductCard } from "./FeaturedProductCard";
-import { A } from "@solidjs/router"
+import { Component, For, createSignal } from 'solid-js'
+import { ShopCard } from '../components/ShopCard'
 
-type FeaturedItemsProps = {
+type ShopItemsProps = {
   productIds: string[]
 }
 
@@ -13,9 +12,7 @@ interface Product {
   price: number
 }
 
-export const FeaturedItems: Component<FeaturedItemsProps> = (props) => {
-
-  // Here I could fetch the featured products from an API
+const Shop: Component<ShopItemsProps> = (props) => { 
 
   const [products, setProducts] = createSignal<Product[]>([
     {
@@ -57,17 +54,20 @@ export const FeaturedItems: Component<FeaturedItemsProps> = (props) => {
 
 
   return (
-    <div class='flex flex-col items-center'>
-    <h2 class='font-serif text-md font-semibold my-3 pl-3 tracking-wider'>Featured Items</h2>
-    <div class='grid grid-cols-2 md:grid-cols-4 md:w-4/5 md:mx-auto gap-1 px-3'>
-    <For each={products()} fallback={<div>Loading...</div>}>
-      {item => <FeaturedProductCard product={item} />}
-    </For>
-    </div>
-    <A href='/shop' class='px-4 py-2 mt-2 hover:scale-105 font-serif bg-accent-green'>
-      View All
-    </A>
-    </div>
+
+    <>
+      <div class='flex justify-between px-3 my-2 font-serif text-md'>
+        <span>Filter and sort</span>
+        <span>{products().length} products</span>  
+      </div>
+      <div class='grid grid-cols-2 gap-2 px-3'>
+        <For each={products()}>
+          {item => <ShopCard product={item}/>}
+        </For>
+      </div>
+    </>
   )
 
 }
+
+export default Shop

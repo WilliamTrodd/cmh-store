@@ -11,7 +11,7 @@ type ProductCardProps = {
   product: Product
 }
 
-export const ProductCard: Component<ProductCardProps> = (props) => {
+export const FeaturedProductCard: Component<ProductCardProps> = (props) => {
   return (
     <div class='flex flex-col'>
       <img class='object-cover grow' src={props.product.imageUrl} />
