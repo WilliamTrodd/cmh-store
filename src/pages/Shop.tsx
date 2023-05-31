@@ -60,7 +60,7 @@ const Shop: Component<ShopItemsProps> = (props) => {
         <span>Filter and sort</span>
         <span>{products().length} products</span>  
       </div>
-      <div class='grid grid-cols-2 gap-2 px-3'>
+      <div class='grid grid-cols-2 md:grid-cols-4 gap-2 px-3'>
         <For each={products()}>
           {item => <ShopCard product={item}/>}
         </For>
