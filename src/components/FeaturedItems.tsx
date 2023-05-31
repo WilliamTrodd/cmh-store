@@ -19,35 +19,35 @@ export const FeaturedItems: Component<FeaturedItemsProps> = (props) => {
 
   const [products, setProducts] = createSignal<Product[]>([
     {
-      imageUrl: '../src/assets/product1.jpg',
+      imageUrl: 'images/product1.jpg',
       name: 'Test',
       id: '1',
       price: 30
     },
     {
-      imageUrl: '../src/assets/product2.jpg',
+      imageUrl: 'images/product2.jpg',
       name: 'Test 2',
       id: '2',
       price: 30
     },    {
-      imageUrl: '../src/assets/product3.jpg',
+      imageUrl: 'images/product3.jpg',
       name: 'Test 3',
       id: '3',
       price: 30
     },
     {
-      imageUrl: '../src/assets/product1.jpg',
+      imageUrl: 'images/product1.jpg',
       name: 'Test 4',
       id: '4',
       price: 12.50
     },
     {
-      imageUrl: '../src/assets/product2.jpg',
+      imageUrl: 'images/product2.jpg',
       name: 'Test 5',
       id: '5',
       price: 30
     },    {
-      imageUrl: '../src/assets/product3.jpg',
+      imageUrl: 'images/product3.jpg',
       name: 'Test 6',
       id: '6',
       price: 30
