@@ -12,7 +12,7 @@ export const Header: Component = () => {
 
 
   return (
-    <div class='w-full bg-white flex items-center justify-between h-14'>
+    <div class='w-full bg-white flex items-center justify-between h-14 border-b-2 border-accent-offwhite'>
       <div id='hamburger' class='w-12' onClick={handleClick}>
         <Hamburger />
       </div>
