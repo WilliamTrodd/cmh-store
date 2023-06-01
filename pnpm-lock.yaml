@@ -4,6 +4,7 @@ specifiers:
   '@solidjs/router': ^0.8.2
   autoprefixer: ^10.4.14
   postcss: ^8.4.24
+  solid-icons: ^1.0.6
   solid-js: ^1.6.10
   tailwindcss: ^3.3.2
   typescript: ^4.9.5
@@ -12,6 +13,7 @@ specifiers:
 
 dependencies:
   '@solidjs/router': 0.8.2_solid-js@1.6.10
+  solid-icons: 1.0.6_solid-js@1.6.10
   solid-js: 1.6.10
 
 devDependencies:
@@ -1262,6 +1264,15 @@ packages:
     resolution: {integrity: sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==}
     hasBin: true
     dev: true
+
+  /solid-icons/1.0.6_solid-js@1.6.10:
+    resolution: {integrity: sha512-SACGHh+4aTq879tXzim4/4YF8Ti4vFDFbBAJLOzl8ykASVYJ50Pttu4NnD1Faay+PDpjJqEZzytg429AN0W1PQ==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      solid-js: '*'
+    dependencies:
+      solid-js: 1.6.10
+    dev: false
 
   /solid-js/1.6.10:
     resolution: {integrity: sha512-Sf0e6PQCEFkFtbPq0L+93Ua81YQOefBEbvDJ0YXT92b6Lzw0k7UvzSd2l1BbYM+yzE3UmepU1tyMDc/3nIByjA==}
