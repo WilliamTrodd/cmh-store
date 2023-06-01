@@ -1,6 +1,7 @@
 import { Component, createSignal, For } from "solid-js";
 import { FeaturedProductCard } from "./FeaturedProductCard";
 import { A } from "@solidjs/router"
+import { state } from "../store";
 
 type FeaturedItemsProps = {
   productIds: string[]
@@ -15,52 +16,11 @@ interface Product {
 
 export const FeaturedItems: Component<FeaturedItemsProps> = (props) => {
 
-  // Here I could fetch the featured products from an API
-
-  const [products, setProducts] = createSignal<Product[]>([
-    {
-      imageUrl: 'images/product1.jpg',
-      name: 'Test',
-      id: '1',
-      price: 30
-    },
-    {
-      imageUrl: 'images/product2.jpg',
-      name: 'Test 2',
-      id: '2',
-      price: 30
-    },    {
-      imageUrl: 'images/product3.jpg',
-      name: 'Test 3',
-      id: '3',
-      price: 30
-    },
-    {
-      imageUrl: 'images/product1.jpg',
-      name: 'Test 4',
-      id: '4',
-      price: 12.50
-    },
-    {
-      imageUrl: 'images/product2.jpg',
-      name: 'Test 5',
-      id: '5',
-      price: 30
-    },    {
-      imageUrl: 'images/product3.jpg',
-      name: 'Test 6',
-      id: '6',
-      price: 30
-    }
-
-  ])
-
-
   return (
     <div class='flex flex-col items-center'>
     <h2 class='font-serif text-md font-semibold my-3 pl-3 tracking-wider'>Featured Items</h2>
     <div class='grid grid-cols-2 md:grid-cols-4 md:w-4/5 md:mx-auto gap-1 px-3'>
-    <For each={products()} fallback={<div>Loading...</div>}>
+    <For each={state.products} fallback={<div>Loading...</div>}>
       {item => <FeaturedProductCard product={item} />}
     </For>
     </div>

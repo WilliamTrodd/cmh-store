@@ -1,20 +1,9 @@
 import { Component, For, createSignal } from 'solid-js'
 import { ShopCard } from '../components/ShopCard'
 
-type ShopItemsProps = {
-  productIds: string[]
-}
+const Shop: Component = (props) => { 
 
-interface Product {
-  imageUrl: string
-  name: string
-  id: string
-  price: number
-}
-
-const Shop: Component<ShopItemsProps> = (props) => { 
-
-  const [products, setProducts] = createSignal<Product[]>([
+  const [products, setProducts] = createSignal([
     {
       imageUrl: 'images/product1.jpg',
       name: 'Test',
@@ -51,7 +40,6 @@ const Shop: Component<ShopItemsProps> = (props) => {
     }
 
   ])
-
 
   return (
 

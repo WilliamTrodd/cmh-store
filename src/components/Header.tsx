@@ -1,14 +1,12 @@
 import { Component, createSignal } from "solid-js"
 import { Hamburger } from "./Hamburger"
 import {A } from '@solidjs/router'
+import { state, setState } from '../store'
 
 export const Header: Component = () => {
 
-  const [menuOpen, setMenuOpen] = createSignal(false)
-
   const handleClick = () => {
-    // move this to a site-wide store to prevent scrolling
-    setMenuOpen(!menuOpen())
+    setState('menuOpen', !state.menuOpen)
   }
 
 
@@ -17,11 +15,11 @@ export const Header: Component = () => {
       <div id='hamburger' class='w-12' onClick={handleClick}>
         <Hamburger />
       </div>
-      <div class='absolute w-80 -left-80 transition-transform duration-300 ease-in top-16 z-50 bg-accent-offwhite' classList={{['translate-x-80']: menuOpen()}}>
+      <div class='absolute w-80 -left-80 transition-transform duration-300 ease-in top-20 bottom-0 z-50 bg-accent-offwhite' classList={{['translate-x-80 overflow-hidden']: state.menuOpen}}>
         <div>
-          <A href='/' class='block py-2 pl-3 text-left font-serif text-lg tracking-wider hover:bg-accent-green'>Home</A>
-          <A href='/shop' class='block py-2 pl-3 text-left font-serif text-lg tracking-wider hover:bg-accent-green'>Shop</A>
-          <a href='/about' class='block py-2 pl-3 text-left font-serif text-lg tracking-wider hover:bg-accent-green'>About</a>
+          <A onClick={handleClick} href='/' class='block py-2 pl-3 text-left font-serif text-lg tracking-wider hover:bg-accent-green'>Home</A>
+          <A onClick={handleClick} href='/shop' class='block py-2 pl-3 text-left font-serif text-lg tracking-wider hover:bg-accent-green'>Shop</A>
+          <A onClick={handleClick} href='/about' class='block py-2 pl-3 text-left font-serif text-lg tracking-wider hover:bg-accent-green'>About</A>
         </div>
       </div>
       <div class='grow text-center font-serif'>CMH Crafts</div>

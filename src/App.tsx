@@ -4,6 +4,7 @@ import { Route, Routes } from '@solidjs/router';
 
 import { PromoBanner } from './components/PromoBanner';
 import { Header } from './components/Header';
+import { state } from './store';
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -12,9 +13,9 @@ const Shop = lazy(() => import('./pages/Shop'))
 
 const App: Component = () => {
   return (
-    <div>
+    <div classList={{'max-h-screen overflow-hidden': state.menuOpen}}>
         <PromoBanner text="Welcome to my store :^)" />
-  <Header />
+        <Header />
       <Routes>
         <Route path="/" component={Home} />
         <Route path="/about" component={About} />
