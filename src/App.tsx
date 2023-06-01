@@ -9,7 +9,7 @@ import { state } from './store';
 import Home from './pages/Home'
 const About = lazy(() => import('./pages/About'))
 const Shop = lazy(() => import('./pages/Shop'))
-const Product = lazy(() => import('./pages/Product'))
+const ProductPage = lazy(() => import('./pages/Product'))
 const Cart = lazy(() => import('./pages/Cart'))
 
 const App: Component = () => {
@@ -30,7 +30,7 @@ const App: Component = () => {
         <Route path="/about" component={About} />
         <Route path="/shop" component={Shop} />
         <Route path="/product">
-          <Route path="/:id" component={Product}/>
+          <Route path="/:id" component={ProductPage}/>
         </Route>
         <Route path="/cart" component={Cart} />
       </Routes>

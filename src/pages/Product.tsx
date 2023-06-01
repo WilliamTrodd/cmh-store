@@ -1,8 +1,9 @@
 import { useParams } from "@solidjs/router"
 import { Component, Show } from "solid-js"
-import { state } from "../store"
+import { setProductState, productState } from "../store"
+import { Product } from "../types"
 
-const Product: Component = () => {
+const ProductPage: Component = () => {
 
   // Strucure:
   // Image Carousel (Just do 3x the same image for now)
@@ -16,7 +17,16 @@ const Product: Component = () => {
 
   // for now, let's just access the store directly, rather than fetching any data
 
-  const product = state.products.find((product) => product.id === params.id)  
+  const products = JSON.parse(productState.products)
+  const cart: Product[] = JSON.parse(productState.cart) || []
+  const product = products.find((p: Product) => p.id === params.id)  
+
+  const addToCart = () => {
+    if(product){
+      setProductState('cart', JSON.stringify([...cart, product]))
+    }
+  }
+
 
   return (
     <Show when={product} fallback={<div>No product found</div>}>
@@ -27,11 +37,11 @@ const Product: Component = () => {
         <span class='font-serif text-2xl tracking-wide font-medium'>{product?.name}</span>
         <span class='font-serif text-2xl tracking-wide font-medium'>£{product?.price.toFixed(2)}</span>
         {/*Quantitiy*/}
-        <div class='font-serif text-xl mx-auto bg-accent-green px-6 py-2 cursor-pointer'>Add to Cart</div>
+        <div onClick={addToCart} class='font-serif text-xl mx-auto bg-accent-green px-6 py-2 cursor-pointer'>Add to Cart</div>
         <div class='font-serif text-lg tracking-wide font-medium'>Here's a sample description</div>
       </div>
     </Show>
   )
 }
 
-export default Product
+export default ProductPage

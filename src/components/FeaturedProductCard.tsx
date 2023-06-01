@@ -1,12 +1,6 @@
 import { Component } from 'solid-js'
 import { A } from '@solidjs/router'
-
-interface Product {
-  imageUrl: string
-  name: string
-  id: string
-  price: number
-}
+import { Product } from '../types'
 
 type ProductCardProps = {
   product: Product

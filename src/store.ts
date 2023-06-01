@@ -1,18 +1,19 @@
-//TODO move variables to store
-// menu open
-// hbopen
-// products
-// cart
-// user?
-// current products
-
 import { createStore } from 'solid-js/store'
-import type { StoreNode, Store, SetStoreFunction } from 'solid-js/store'
+import { Product } from './types'
 
 const [state, setState] = createStore({
   menuOpen: false,
   hbOpen: false,
-  products: [
+  currentProduct: null,
+})
+
+import { createLocalStorage } from '@solid-primitives/storage'
+
+const [productState, setProductState] = createLocalStorage()
+
+setProductState(
+  'products',
+  JSON.stringify([
     {
       imageUrl: '/images/product1.jpg',
       name: 'Test',
@@ -49,10 +50,8 @@ const [state, setState] = createStore({
       id: '6',
       price: 30,
     },
-  ],
-  cart: [],
-  user: null,
-  currentProduct: null,
-})
+  ])
+)
+setProductState('user', 'null')
 
-export { state, setState }
+export { state, setState, productState, setProductState }
