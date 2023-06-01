@@ -10,6 +10,7 @@ type FeaturedItemsProps = {
 export const FeaturedItems: Component<FeaturedItemsProps> = (props) => {
 
   return (
+
     <div class='flex flex-col items-center'>
     <h2 class='font-serif text-md font-semibold my-3 pl-3 tracking-wider'>Featured Items</h2>
     <div class='grid grid-cols-2 md:grid-cols-4 md:w-4/5 md:mx-auto gap-1 px-3'>
