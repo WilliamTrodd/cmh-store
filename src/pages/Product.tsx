@@ -22,7 +22,7 @@ const Product: Component = () => {
     <Show when={product} fallback={<div>No product found</div>}>
       <div class='flex flex-col gap-2 mx-3'>
         {/*image carousel*/}
-        <img src={'../'+product?.imageUrl} class='aspect-square object-cover'/>
+        <img src={product?.imageUrl} class='aspect-square object-cover'/>
         <span class='font-serif text-sm tracking-wide font-medium'>Casey Harling</span>
         <span class='font-serif text-2xl tracking-wide font-medium'>{product?.name}</span>
         <span class='font-serif text-2xl tracking-wide font-medium'>£{product?.price.toFixed(2)}</span>

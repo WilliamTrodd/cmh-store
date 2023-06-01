@@ -7,13 +7,6 @@ type FeaturedItemsProps = {
   productIds: string[]
 }
 
-interface Product {
-  imageUrl: string
-  name: string
-  id: string
-  price: number
-}
-
 export const FeaturedItems: Component<FeaturedItemsProps> = (props) => {
 
   return (
