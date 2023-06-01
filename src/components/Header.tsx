@@ -1,7 +1,8 @@
 import { Component, createSignal } from "solid-js"
 import { Hamburger } from "./Hamburger"
-import {A } from '@solidjs/router'
+import { A } from '@solidjs/router'
 import { state, setState } from '../store'
+import { FiShoppingBag } from 'solid-icons/fi'
 
 export const Header: Component = () => {
 
@@ -25,7 +26,7 @@ export const Header: Component = () => {
       <div class='grow text-center font-serif'>CMH Crafts</div>
       <div class='w-12'>
         <span id='search'></span>
-        <span id='basket'></span>
+        <A href={'/cart'} id='basket'><FiShoppingBag color=''/></A>
       </div>
     </div>
   )

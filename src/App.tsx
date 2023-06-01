@@ -10,11 +10,12 @@ import Home from './pages/Home'
 const About = lazy(() => import('./pages/About'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Product = lazy(() => import('./pages/Product'))
+const Cart = lazy(() => import('./pages/Cart'))
 
 const App: Component = () => {
 
   const location = useLocation()
-  
+
   createEffect(() => {
     console.log(location.pathname)
 
@@ -31,6 +32,7 @@ const App: Component = () => {
         <Route path="/product">
           <Route path="/:id" component={Product}/>
         </Route>
+        <Route path="/cart" component={Cart} />
       </Routes>
     </div>
   );
